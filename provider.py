@@ -168,8 +168,8 @@ class Handler(BaseHandler):
       if user:
         from openid.extensions.sreg import SRegRequest,SRegResponse
         sreg_req = SRegRequest.fromOpenIDRequest(oidresponse.request)
+        logging.info("sreg_req:%s",sreg_req.allRequestedFields())
         if sreg_req.wereFieldsRequested():
-          logging.info("sreg_req:%s",sreg_req.allRequestedFields())
           user_data = {'nickname':user.nickname,
                        'email':user.email}
           sreg_resp = SRegResponse.extractResponse(sreg_req, user_data)
@@ -177,8 +177,9 @@ class Handler(BaseHandler):
         # add nickname, using the Simple Registration Extension:
         # http://www.openidenabled.com/openid/simple-registration-extension/
 #mrk
-        oidresponse.fields.setArg('http://openid.net/sreg/1.0', 'nickname', user.nickname)
-        oidresponse.fields.setArg('http://openid.net/sreg/1.0', 'email', user.email)
+	#oidresponse.fields.setArg('http://openid.net/sreg/1.0', 'nickname', user.nickname)
+	#oidresponse.fields.setArg('http://openid.net/sreg/1.0', 'email', user.email)
+        
         pass
     logging.info('Using response: %s' % oidresponse)
     encoded_response = oidserver.encodeResponse(oidresponse)
