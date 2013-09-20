@@ -27,8 +27,8 @@ as it handles some complex authentication states that can only be detected
 in client-side code.
 """
 
-FACEBOOK_APP_ID = "225004474229922"
-FACEBOOK_APP_SECRET = "377ad85c995d5eb631d906c36eb4b324"
+FACEBOOK_APP_ID = "169837426382293"
+FACEBOOK_APP_SECRET = "d58a579b3d70a85a0816f190b1788bb1"
 
 import base64
 import cgi
