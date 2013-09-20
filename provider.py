@@ -187,7 +187,7 @@ class Handler(BaseHandler):
         ax_res = FetchResponse()
         for x in ax_req.iterAttrs():
           ax_res.addValue(x.type_uri,res[x.alias] )
-        ax_resp.toMessage(oidresponse.fields)       
+        ax_res.toMessage(oidresponse.fields)       
         pass
     logging.info('Using response: %s' % oidresponse)
     encoded_response = oidserver.encodeResponse(oidresponse)
