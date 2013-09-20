@@ -176,10 +176,17 @@ class Handler(BaseHandler):
           sreg_resp.toMessage(oidresponse.fields)
         # add nickname, using the Simple Registration Extension:
         # http://www.openidenabled.com/openid/simple-registration-extension/
-#mrk
-	#oidresponse.fields.setArg('http://openid.net/sreg/1.0', 'nickname', user.nickname)
-	#oidresponse.fields.setArg('http://openid.net/sreg/1.0', 'email', user.email)
-        
+        #oidresponse.fields.setArg('http://openid.net/sreg/1.0', 'nickname', user.nickname)
+        #oidresponse.fields.setArg('http://openid.net/sreg/1.0', 'email', user.email)
+        #oidresponse.fields.setArg('http://openid.net/srv/ax/1.0', 'nickname', user.nickname)
+        #oidresponse.fields.setArg('http://openid.net/srv/ax/1.0', 'email', user.email)
+        from openid.extensions.ax import FetchRequest, FetchResponse	
+        res ={'nickname':user.nickname,'email':user.email,'attr0':user.email,'attr1':user.nickname}
+        ax_req = ax.FetchRequest.fromOpenIDRequest(oid_req)
+        ax_res = ax.FetchResponse()
+        for x in ax_req.iterAttrs():
+          ax_res.addValue(x.type_uri,res[x.alias] )
+        ax_resp.toMessage(oidresponse.fields)       
         pass
     logging.info('Using response: %s' % oidresponse)
     encoded_response = oidserver.encodeResponse(oidresponse)
