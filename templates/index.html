@@ -1,19 +1,12 @@
 {% extends "base.html" %}
 
-{% block head %}
-	<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'c86e7495-cfd9-41f5-a486-bd6940531807'});</script>
-{% endblock %}
-
 {% block body %}
 
-<h2>Facebook OpenID Provider (unofficial)</h2>
+<h2>Connectez-vous à EgliseInfo via Facebook</h2>
 
 <p>
-<b>Log into any OpenID site with your Facebook account</b>
+<b>Utilisez votre compte Facebook pour vous authentifier à Facebook</b>
 </p>
-This service allows you to use your Facebook account to log into any site which supports <nobr><a href="http://openid.net/">
- <img src="/static/openid-icon.png" />OpenID</a></nobr>!<br> All you have to do is to provide an address for the provider in one of the forms:
-
 {% if user %}
 <ul>
 	<li><span class="url">{{ request_url_without_path }}/</span>
@@ -21,11 +14,11 @@ This service allows you to use your Facebook account to log into any site which 
 </ul>
 {% else %}
 <ul>
-	<li><span class="url">http://facebook-openid.appspot.com/</span>
-	<li><span class="url">http://facebook-openid.appspot.com/[your-facebook-login]</span>
+	<li><span class="url">http://egliseinfo-facebook.appspot.com/</span>
+	<li><span class="url">http://egliseinfo-facebook.appspot.com/[your-facebook-login]</span>
 </ul>
 <p>
-  First, <a href="{{ login_url|escape }}">log in</a> to your Facebook account.
+  Pour commencer, <a href="{{ login_url|escape }}">connectez-vous</a> à votre compte Facebook.
 </p>
 
 {% endif %}
@@ -33,16 +26,10 @@ This service allows you to use your Facebook account to log into any site which 
 
 <p>&nbsp;</p>
 
-<div style="width:350px; text-align:right; float:right;">
-	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TTREJ866PSAU8" style="position:relative; top:-20px;"><img src="/static/btn_donate.gif" alt="Donate on PayPal"/></a><br/>
-	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TTREJ866PSAU8"><b>If you use this service PLEASE DONATE<br/> Otherwise we can't keep it running and improve it...</b></a>
-</div>
-
-
 <div class="top">
   <div class="left"></div>
   <div class="right"></div>
-  <h2>Recent OpenID Requests</h2>
+  <h2>Vos récentes connexions</h2>
 </div>
 
 <table class="logins">
@@ -64,11 +51,9 @@ This service allows you to use your Facebook account to log into any site which 
 {% if not logins %}
   <tr><td colspan="3" class="light" align="center">
     {% if user %}
-      You haven't used OpenID yet. Try using it to leave a comment on
-      <a href="http://blogsofnote.blogspot.com/">Blogger</a>!
+     	Allez sur le site <a href="http://egliseinfo.catholique.fr/">EgliseInfo</a> et connectez-vous via Facebook.
     {% else %}
-      Please <a href="{{ login_url|escape }}">log in</a> to see your recent
-      OpenID requests.
+      Merci de se <a href="{{ login_url|escape }}">connecter</a> pour voir vos dernières connexions depuis le service.
     {% endif %}
   </td></tr>
 {% endif %}
@@ -77,13 +62,13 @@ This service allows you to use your Facebook account to log into any site which 
 <div class="bottom">
 <table class="key"><tr>
   <td class="confirmed">
-    <img class="icon" class="icon" src="/static/confirmed.png" /> Confirmed
+    <img class="icon" class="icon" src="/static/confirmed.png" /> Confirmé
   </td>
   <td class="remembered">
-    <img class="icon" src="/static/remembered.png" /> Remembered
+    <img class="icon" src="/static/remembered.png" /> Mémorisé
   </td>
   <td class="declined">
-    <img class="icon" src="/static/declined.png" /> Declined
+    <img class="icon" src="/static/declined.png" /> Annulé
   </td>
 </tr></table>
 
@@ -91,10 +76,4 @@ This service allows you to use your Facebook account to log into any site which 
 <div class="right"></div>
 
 </div>
-
-
-<div style="text-align:right">
-<span class='st_facebook_hcount' displayText='Facebook'></span><span  class='st_twitter_hcount' displayText='Tweet'></span><span  class='st_email_hcount' displayText='Email'></span>
-</div>
-
 {% endblock %}

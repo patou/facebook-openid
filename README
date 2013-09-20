@@ -1,9 +1,9 @@
 Copyright (C) 2011 Klokan Technologies GmbH
 
-Facebook OpenID Provider
-========================
+Facebook OpenID Provider for EgliseInfo
+=======================================
 
-http://facebook-openid.appspot.com/
+http://egliseinfo-facebook.appspot.com/
 
 An OpenID Provider app which allows Facebook users to log into
 any OpenID site using their Facebook account.

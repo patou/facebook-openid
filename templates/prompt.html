@@ -4,16 +4,17 @@
 {% endblock %}
 
 {% block body %}
-<h2>Request for Permission on your Facebook Account</h2>
+<h2>Confirmez votre connexion au site EgliseInfo</h2>
 
 <p>
+Vous êtes en train de vous connecter sur le site
 <a href="{{ oidrequest.trust_root }}">{{ oidrequest.trust_root }}</a>
-has asked for your identity. Do you want to respond with your nickname
-<span class="nickname">{{ user.nickname }}</span>?
+via Facebook avec votre login Facebook 
+<span class="nickname">{{ user.nickname }}</span>, Voulez-vous continuer ?
 </p>
 <form method="post" action="/login">
-<input type="submit" name="yes" value="Yes" />
-<input type="submit" name="no" value="No" />
+<input type="submit" name="yes" value="Oui" />
+<input type="submit" name="no" value="non" />
 <!-- these are used to recreate the OpenID CheckIDRequest -->
 
 {%for k in postargs.items%}
@@ -21,7 +22,7 @@ has asked for your identity. Do you want to respond with your nickname
 {%endfor%}
 
 <input type="checkbox" name="remember" value="yes" />
-  Remember for two weeks <br />
+  Rester connecté pendant deux semaines <br />
 </form>
 
 <p>&nbsp;</p>
