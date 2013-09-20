@@ -177,8 +177,8 @@ class Handler(BaseHandler):
         # add nickname, using the Simple Registration Extension:
         # http://www.openidenabled.com/openid/simple-registration-extension/
 #mrk
-        oidresponse.fields.setArg('http://openid.net/sreg/1.0', 'nickname', user.nickname())
-        oidresponse.fields.setArg('http://openid.net/sreg/1.0', 'email', user.email())
+        oidresponse.fields.setArg('http://openid.net/sreg/1.0', 'nickname', user.nickname)
+        oidresponse.fields.setArg('http://openid.net/sreg/1.0', 'email', user.email)
         pass
     logging.info('Using response: %s' % oidresponse)
     encoded_response = oidserver.encodeResponse(oidresponse)
