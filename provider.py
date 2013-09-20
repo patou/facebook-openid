@@ -182,7 +182,8 @@ class Handler(BaseHandler):
         #oidresponse.fields.setArg('http://openid.net/srv/ax/1.0', 'email', user.email)
         from openid.extensions.ax import FetchRequest, FetchResponse	
         res ={'nickname':user.nickname,'email':user.email,'attr0':user.email,'attr1':user.nickname}
-        ax_req = FetchRequest.fromOpenIDRequest(oid_req)
+        ax_req = FetchRequest.fromOpenIDRequest(oidresponse.request)
+        logging.info("ax_req:%s",ax_req.getRequiredAttrs())
         ax_res = FetchResponse()
         for x in ax_req.iterAttrs():
           ax_res.addValue(x.type_uri,res[x.alias] )
